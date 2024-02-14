@@ -4,17 +4,18 @@ import Search from "../../components/Search";
 import Pokemon from "../../components/pokemon/Pokemon";
 import "../../sass/home.scss"
 import { getPokemonByName, getPokemons } from "../../service/api";
+import {motion} from "framer-motion"
 const Home = () => {
   const [pokemons,setPokemons] = useState([]);
   useEffect(() =>{
     getPokemons({limit : 10,offset : 0}).then(res =>{
       if(res.status == 200){ 
-        let pokemons = [];
+        let pokemonsRef = [];
         res.data.results.map((item,i,_) =>{
-           getPokemonByName({name : item.name}).then(resPoke =>{
-            if(resPoke.status == 200){ 
-              pokemons.push(resPoke.data);
-              setPokemons(pokemons);
+            getPokemonByName({name : item.name}).then(resPoke =>{
+            if(resPoke.status == 200){
+              pokemonsRef = [...pokemonsRef,resPoke.data];
+              setPokemons(pokemonsRef);
             }else{
               console.log("echec");
             }
