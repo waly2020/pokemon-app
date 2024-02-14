@@ -1,0 +1,36 @@
+@import "./variables.scss";
+.page{
+    position: relative;
+    // background: orange;
+    .background-page{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: url("../../public/assets/images/background.png");
+        opacity: .5;
+        filter: opacity(0.1);
+    }
+    .to-bar{
+        position: relative;
+        height: $topBarHeigth;
+        padding: 0 $paddingPage;
+        &.shadow{
+            box-shadow: 0 2px 4px rgba(200, 200, 200, 0.33);
+        }
+        .content-top-bar{
+            width: 100%;
+            max-width: $widthPage;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .content-page{
+        position: relative;
+        // max-width: $widthPage;
+        margin: auto;
+        padding: 20px 10px;
+    }
+}

@@ -1,0 +1,34 @@
+.about-container{
+    margin: 20px 0;
+    .container-icon-details{
+        margin: 5px 0 20px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        .icon-details{
+            position: relative;
+            flex-grow: 1;
+            padding: 8px 5px;
+            .icon-icon-detail{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 40px;
+                overflow: hidden;
+                & > *{
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    opacity: .2;
+                    // color: #000;
+                }
+            }
+            .title-icon-detail{
+                font-weight: bold;
+                font-size: 1.3em;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+.onglets{
+    position: relative;
+    .onglet-titles{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 10px;
+        gap: 10px;
+        button{
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 0.8em;
+            color: #aaa;
+            font-weight: bold;
+            padding: 10px 10px;
+            border-radius: 99px;
+            background-color: rgba(238, 238, 238, 0.483);
+            transition: .3s;
+            &.active{
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.469);
+            }
+        }
+    }
+    .onglet-content{
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.3s;
+        &.active{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
