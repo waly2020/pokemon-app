@@ -8,12 +8,12 @@ import {motion} from "framer-motion"
 const Home = () => {
   const [pokemons,setPokemons] = useState([]);
   useEffect(() =>{
-    getPokemons({limit : 10,offset : 0}).then(res =>{
-      if(res.status == 200){ 
+    getPokemons({limit : 50,offset : 0}).then(res =>{
+      if(res.status === 200){ 
         let pokemonsRef = [];
         res.data.results.map((item,i,_) =>{
             getPokemonByName({name : item.name}).then(resPoke =>{
-            if(resPoke.status == 200){
+            if(resPoke.status === 200){
               pokemonsRef = [...pokemonsRef,resPoke.data];
               setPokemons(pokemonsRef);
             }else{

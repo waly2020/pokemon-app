@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import "../../sass/components/pokemonItem.scss";
 import Container from "../Container";
-const Pokemon = ({pokemon}) => {
+
+import { forwardRef } from "react";
+const Pokemon = forwardRef(({pokemon},ref) => {
   return (
-    <Link to="/details" className="pokemon">
-      {/* <div className="pokemon"> */}
+    <Link to={`/details/${pokemon.name}`} ref={ref} className="pokemon"> 
         <div className={`pokemon-background ${pokemon.types[0].type.name}`}>
           <img src="/assets/images/shadow-ball.png" />
         </div>
@@ -12,8 +13,6 @@ const Pokemon = ({pokemon}) => {
           <p>{pokemon.name}</p>
         </div>
         <div className="pokemon-type">
-          {/* <p>{pokemon.order}</p>
-          <p>Foudre</p> */}
           {pokemon.types.map((item,i,_) => (
             <>
               <p>{item.type.name}</p>
@@ -23,9 +22,8 @@ const Pokemon = ({pokemon}) => {
         <div className="pokemon-image">
           <img src={pokemon.sprites.other.dream_world.front_default}/>
         </div>
-      {/* </div> */}
     </Link>
   );
-};
+}); 
 
 export default Pokemon;

@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Details from "../pages/Details/Details";
+
+import { Suspense, lazy } from "react";
+const DetailsLazy = lazy(() => import("../pages/Details/Details"))
 
 const router = createBrowserRouter([
   {
@@ -8,8 +10,10 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path : "/details",
-    element : <Details/>
+    path : "/details/:pokemon",
+    element : <Suspense fallback={<p>loading...</p>}>
+      <DetailsLazy/>
+    </Suspense>
   }
 ]);
 const AppRouter = () => {

@@ -30,8 +30,10 @@
     }
     .content-page{
         position: relative;
-        // max-width: $widthPage;
         margin: auto;
-        padding: 20px 10px;
+        padding: 20px 0;
+        &.detail-page-content{
+            max-width: $widthPage;
+        }
     }
 }

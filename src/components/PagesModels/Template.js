@@ -1,12 +1,7 @@
-/**
- * 
- * @param {{topBar : React.JSX.Element,style : React.CSSProperties,shadow : boolean,children : React.JSX.Element | [React.JSX.Element]}} param0 
- * @returns 
- */
-const PageTemplate = ({topBar = null,style,shadow = false,children}) => {
+const PageTemplate = ({topBar = null,className = "",classContent = "",style,shadow = false,children}) => {
     return (
         <>
-            <main style={style} className="page">
+            <main style={style} className={`page ${className}`}>
                 <div className="background-page">
                 </div>
                 {topBar ? <div className={`to-bar ${shadow ? 'shadow' : ''}`}>
@@ -14,7 +9,7 @@ const PageTemplate = ({topBar = null,style,shadow = false,children}) => {
                         {topBar}
                     </div>
                 </div> : null}
-                <div className="content-page">
+                <div className={`content-page ${classContent}`}>
                     {children}
                 </div>
             </main>
