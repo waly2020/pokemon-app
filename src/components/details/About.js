@@ -7,19 +7,22 @@ const About = ({pokemon}) => {
   return (
     <>
       <div className="about-container">
+      <Container className="title-sec-about">
+        <h2>About</h2>
+      </Container>
       <div className="container-icon-details">
         <Container className="icon-details">
-          <div className="icon-icon-detail purple"><IoResizeSharp/></div>
+          {/* <div className="icon-icon-detail purple"><IoResizeSharp/></div> */}
           <p className="relative title-icon-detail purple">Size</p>
           <p className="value-icon-detail relative">{pokemon?.height} cm</p>
         </Container>
         <Container className="icon-details">
-          <div className="icon-icon-detail red"><GiWeightScale/></div>
+          {/* <div className="icon-icon-detail red"><GiWeightScale/></div> */}
           <p className="relative title-icon-detail red">Weight</p>
           <p className="value-icon-detail relative">{pokemon?.weight} kg</p>
         </Container>
         <Container className="icon-details">
-          <div className="icon-icon-detail orange"><GiPowerLightning/></div>
+          {/* <div className="icon-icon-detail orange"><GiPowerLightning/></div> */}
           <p className="relative title-icon-detail orange">Ability</p>
           <p className="value-icon-detail relative">{pokemon?.abilities.map((abilitie,i,_) => {
             if(!abilitie?.is_hidden){
@@ -28,15 +31,17 @@ const About = ({pokemon}) => {
           })}</p>
         </Container>
       </div>
-      <Container>
-      <p>
-        Le lorem ipsum est, en imprimerie, une suite de mots sans signification
-        utilisée à titre provisoire pour calibrer une mise en page, le texte
-        définitif venant remplacer le faux-texte dès qu'il est prêt ou que la
-        mise en page est achevée. Généralement, on utilise un texte en faux
-        latin, le Lorem ipsum ou Lipsum.
-      </p>
+      <Container className="title-sec-about">
+        <h2>Stats</h2>
       </Container>
+      <div className="container-stats">
+        {pokemon?.stats.map((stat,i,_) =>{
+          return <Container className="stats">
+            <p className="stat-title">{stat.stat.name}</p>
+            <p className="stat-value">{stat.base_stat}</p>
+          </Container>
+        })}
+      </div>
       </div>
     </>
   );

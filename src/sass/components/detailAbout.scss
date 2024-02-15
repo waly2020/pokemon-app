@@ -1,5 +1,26 @@
 .about-container{
     margin: 20px 0;
+    .title-sec-about{
+        margin: 20px 0;
+    }
+    .container-stats{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+        .stats{
+            padding: 5px 10px;
+            .stat-title{
+                // font-weight: bold;
+                font-size: 18px;
+                color: #333;
+            }
+            .stat-value{
+                font-size: 35px;
+                font-weight: bold;
+                color: royalblue;
+            }
+        }
+    }
     .container-icon-details{
         margin: 5px 0 20px 0;
         display: flex;

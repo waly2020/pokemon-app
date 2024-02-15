@@ -5,7 +5,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import Onglets from "../../components/Onglets";
 import About from "../../components/details/About";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getPokemonByName } from "../../service/api";
 
 const Details = () => {
@@ -32,7 +32,7 @@ const Details = () => {
             <div className="pokemon-header-details">
               <div className="row">
                 <h1>{pokemonData?.name ?? ""}</h1>
-                <h3 className="number">#{pokemonData?.order}</h3>
+                <h3 className="number">#{pokemonData?.id}</h3>
               </div>
               <div className="row">
                 <div className="pokemon-type">
@@ -50,14 +50,15 @@ const Details = () => {
             </div>
           </header>
           <div className="details-container">
-            <Onglets
+            {/* <Onglets
               onglets={[
                 { title: "About", content: <About pokemon={pokemonData}/> },
                 { title: "Moves", content: <h1>Moves</h1> },
                 { title: "Evolution", content: <h1>Evolution</h1> },
                 { title: "Main state", content: <h1>Main state</h1> },
               ]}
-            />
+            /> */}
+            <About pokemon={pokemonData}/>
           </div>
         </div>
       </PageTemplate>
@@ -67,12 +68,10 @@ const Details = () => {
 const TopBar = () => {
   return (
     <div className="details-top-bar">
-      <button>
+      <Link to="/" className="back-link">
         <IoIosArrowBack />
-      </button>
-      <button>
-        <FaRegHeart />
-      </button>
+      </Link>
+    
     </div>
   );
 };

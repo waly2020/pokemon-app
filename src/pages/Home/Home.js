@@ -42,7 +42,7 @@ const Home = () => {
 const HomeTopBar = () => {
   return (
     <>
-      <p className="app-title">POKEDOX</p>
+      <p className="app-title">POKEDEX</p>
       <div className="logo">
         <img src="/assets/images/ball.png" alt="pokeball"/>
       </div>
