@@ -8,7 +8,7 @@ const Search = () => {
   const searchText = (text = "") =>{
     if(text.length){
       getPokemonByName({name : text}).then(res =>{
-        if(res.status == 200){
+        if(res.status === 200){
           setPokemon(res.data);
         }
       }).catch(err =>{

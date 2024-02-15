@@ -5,6 +5,17 @@ import Pokemon from "../../components/pokemon/Pokemon";
 import "../../sass/home.scss"
 import { getPokemonByName, getPokemons } from "../../service/api";
 import {motion} from "framer-motion"
+import DynamicPokemon from "../../components/pokemon/Pokemon";
+
+const MainVariant = {
+  initial : {opacity : 1},
+  animate : {transition: {staggerChildren: .3}}
+}
+const BoxVariant = {
+  initial : {y : 50,opacity : 0},
+  animate : {y : 0,opacity : 1}
+}
+
 const Home = () => {
   const [pokemons,setPokemons] = useState([]);
   useEffect(() =>{
@@ -29,11 +40,11 @@ const Home = () => {
       <PageTemplate topBar={<HomeTopBar />}>
         <div className="home-content">
           <Search/>
-          <div className="pokemon-container">
+          <motion.div variants={MainVariant} initial={"initial"} animate={"animate"} className="pokemon-container">
           {pokemons.map((item,i,_) => (
-            <Pokemon key={i} pokemon={item}/>
+            <DynamicPokemon transition={{duration : .5,delay : 1}} variants={BoxVariant} key={i} pokemon={item}/>
           ))}
-          </div>
+          </motion.div>
         </div>
       </PageTemplate>
     </>

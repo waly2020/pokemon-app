@@ -14,7 +14,7 @@ const Details = () => {
   const [pokemonData, setPokemonData] = useState(null);
   useEffect(() =>{
     getPokemonByName({ name: pokemon }).then((res) => {
-      if (res.status == 200) {
+      if (res.status === 200) {
         setPokemonData(res.data);
       }
     });

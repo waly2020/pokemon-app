@@ -3,6 +3,7 @@ import "../../sass/components/pokemonItem.scss";
 import Container from "../Container";
 
 import { forwardRef } from "react";
+import { motion } from "framer-motion";
 const Pokemon = forwardRef(({pokemon},ref) => {
   return (
     <Link to={`/details/${pokemon.name}`} ref={ref} className="pokemon"> 
@@ -25,5 +26,5 @@ const Pokemon = forwardRef(({pokemon},ref) => {
     </Link>
   );
 }); 
-
-export default Pokemon;
+const DynamicPokemon = motion(Pokemon);
+export default DynamicPokemon;
